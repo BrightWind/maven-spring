@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+
+  <!--启动运行的servelet，该servlet名字决定了 [servlet-name]-servlet.xml将命令为dispatcher-servlet.xml-->
+  <servlet>
+    <servlet-name>dispatcher</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <!--配置路径及controler映射，如果dispatcher不存在，则请求失败-->
+  <servlet-mapping>
+    <servlet-name>dispatcher</servlet-name>
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
+
+  <!-- 在controler中，使用@requestMapping添加映射
+  <servlet-mapping>
+          <servlet-name>crunchify</servlet-name>
+          <url-pattern>/welcome.jsp</url-pattern>
+          <url-pattern>/welcome.html</url-pattern>
+          <url-pattern>*.html</url-pattern>
+      </servlet-mapping>
+  -->
+</web-app>
